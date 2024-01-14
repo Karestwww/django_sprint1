@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import Http404
 
 posts = [
     {
@@ -52,8 +53,12 @@ def index(request):
 
 def post_detail(request, id):
     template = 'blog/detail.html'
-    context = {'posts': posts[id]}
-    return render(request, template, context)
+    try:
+        context = {'post': posts[id]}
+        return render(request, template, context)
+    except:
+        raise Http404('')
+
 
 
 def category_posts(request, category_slug):
