@@ -55,10 +55,9 @@ def post_detail(request, id):
     template = 'blog/detail.html'
     try:
         context = {'post': posts[id]}
-        return render(request, template, context)
     except:
         raise Http404('')
-
+    return render(request, template, context)
 
 
 def category_posts(request, category_slug):
