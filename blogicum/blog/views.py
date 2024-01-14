@@ -56,7 +56,7 @@ def post_detail(request, id):
     try:
         context = {'post': posts[id]}
         return render(request, template, context)
-    except:
+    except IndexError:
         raise Http404('')
 
 
