@@ -5,13 +5,13 @@
 {% block content %}
   <h1>Лента записей</h1>
   <!-- Перебираем в цикле все посты -->
-  {% for post in posts_list reversed %}
+  {% for posts in posts_list reversed %}
     <hr>
     {% include "includes/article.html" %}
     <p>
-      {{ post.text|truncatewords:10}}
+      {{ posts.text|truncatewords:10}}
     </p>
-      <a href="{% url 'blog:post_detail' post.id %}"> Читать полный текст </a>
+      <a href="{% url 'blog:post_detail' posts.id %}"> Читать полный текст </a>
 </article>  
   {% endfor %}
 {% endblock %}
