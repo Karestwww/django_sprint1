@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% if posts %}
 {% block title %}
   {{ posts.location }} {{ posts.date }}
 {% endblock %}
@@ -9,3 +10,4 @@
 </p> 
 </article>  
 {% endblock %}
+{% endif %}
