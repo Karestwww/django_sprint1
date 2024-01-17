@@ -55,9 +55,9 @@ def post_detail(request, id):
     template = 'blog/detail.html'
     try:
         context = {'post': posts[id]}
-        return render(request, template, context)
     except IndexError:
-        raise Http404('')
+        raise Http404('Ошибка в индексе. Такой записи не существует')
+    return render(request, template, context)
 
 
 def category_posts(request, category_slug):
